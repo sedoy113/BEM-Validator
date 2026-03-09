@@ -43,6 +43,10 @@ app.post('/api/validate', (req, res) => {
 app.get('/api/config', (req, res) => {
     res.json(config);
 });
+// Редирект с корня на index.html
+app.get('/', (req, res) => {
+    res.redirect('/index.html');
+});
 app.listen(PORT, () => {
     console.log(`🚀 BEM Validator запущен на http://localhost:${PORT}`);
 });
