@@ -56,6 +56,7 @@ export const elementOutsideBlockRule: Rule = {
 
 /**
  * Правило: Модификатор должен иметь значение
+ * Булевы модификаторы (без значения) считаются валидными
  */
 export const modifierWithoutValueRule: Rule = {
   name: 'modifier-without-value',
@@ -66,11 +67,13 @@ export const modifierWithoutValueRule: Rule = {
       for (const cls of element.classes) {
         const bemClass = bemClasses.find(b => b.original === cls);
 
-        if (bemClass?.modifier && !bemClass.modifier.value) {
+        // Пропускаем булевы модификаторы (они валидны без значения)
+        // Проверяем только модификаторы с пустым значением (не undefined)
+        if (bemClass?.modifier && bemClass.modifier.value === '') {
           // Формируем правильный пример с учётом наличия элемента
           const elementPart = bemClass.element ? `${config.elementSeparator}${bemClass.element}` : '';
           const correctExample = `${bemClass.block}${elementPart}${config.modifierSeparator}${bemClass.modifier.name}-value`;
-          
+
           errors.push({
             line: element.line,
             column: element.column,

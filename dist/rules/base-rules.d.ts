@@ -10,6 +10,7 @@ export interface Rule {
 export declare const elementOutsideBlockRule: Rule;
 /**
  * Правило: Модификатор должен иметь значение
+ * Булевы модификаторы (без значения) считаются валидными
  */
 export declare const modifierWithoutValueRule: Rule;
 /**
