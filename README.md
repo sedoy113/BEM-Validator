@@ -245,6 +245,7 @@ web/
 | `npm run build`      | Сборка TypeScript                     |
 | `npm run build:prod` | Сборка + копирование веб-файлов       |
 | `npm run start`      | Запуск сервера                        |
+| `npm run stop`       | Остановка сервера (порт 3000)         |
 | `npm run test`       | Запуск тестов                         |
 | `npm run test:coverage` | Тесты с отчётом о покрытии        |
 | `npm run lint`       | Проверка типов TypeScript             |

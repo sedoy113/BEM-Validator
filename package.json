@@ -15,6 +15,7 @@
     "lint": "tsc --noEmit",
     "start": "node dist/server/index.js",
     "server": "npm run build && npm run start",
+    "stop": "node scripts/stop-server.js",
     "build:prod": "npm run build && npm run build:copy",
     "build:copy": "node scripts/copy-web.js",
     "prepublishOnly": "npm run build:prod"
