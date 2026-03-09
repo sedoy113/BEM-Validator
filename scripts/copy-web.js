@@ -32,6 +32,14 @@ function copyDir(src, dest) {
   // Копируем index.html
   copyFileSync(join(src, 'index.html'), join(dest, 'index.html'));
   console.log('✓ Скопирован index.html');
+
+  // Копируем favicon.ico
+  const faviconSrc = join(src, 'favicon.ico');
+  const faviconDest = join(dest, 'favicon.ico');
+  if (existsSync(faviconSrc)) {
+    copyFileSync(faviconSrc, faviconDest);
+    console.log('✓ Скопирован favicon.ico');
+  }
   
   // Копируем папку js
   const jsSrc = join(src, 'js');
