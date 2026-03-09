@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BEM Validator</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="container">
+		<header class="header">
+			<h1 class="header__title">🔍 BEM Validator</h1>
+			<p class="header__subtitle">Проверка HTML-разметки на соответствие методологии БЭМ</p>
+		</header>
+
+		<main class="main">
+			<section class="panel">
+				<h2 class="panel__title">📝 HTML для проверки</h2>
+				<div class="buttons">
+					<button id="btnValidate" class="btn btn--primary">✓ Проверить</button>
+					<button id="btnClear" class="btn btn--secondary">Очистить</button>
+					<button id="btnExample" class="btn btn--secondary">Пример</button>
+					<button id="btnUpload" class="btn btn--secondary">📁 Загрузить файл</button>
+				</div>
+				<div class="editor">
+					<div id="lineNumbers" class="editor__line-numbers">1</div>
+					<textarea id="htmlInput" class="editor__textarea" placeholder="Вставьте ваш HTML код сюда..."></textarea>
+				</div>
+				<input type="file" id="fileInput" class="file-input" accept=".html,.htm">
+			</section>
+
+			<!-- Плавающая кнопка "Наверх" -->
+			<button id="btnToTop" class="btn--to-top" title="Наверх">⬆️ Наверх</button>
+
+			<section class="panel">
+				<h2 class="panel__title">📊 Результаты</h2>
+				<div id="status" class="status" style="display: none;">
+					<div class="status__item status__item--errors">
+						<div id="errorCount" class="status__count">0</div>
+						<div class="status__label">Ошибок</div>
+					</div>
+					<div class="status__item status__item--warnings">
+						<div id="warningCount" class="status__count">0</div>
+						<div class="status__label">Предупреждений</div>
+					</div>
+				</div>
+				<div id="results" class="results">
+					<div class="empty-state">
+						<svg class="empty-state__icon" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd"
+								d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+								clip-rule="evenodd"></path>
+						</svg>
+						<p class="empty-state__text">Введите HTML код и нажмите «Проверить»</p>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<script type="module" src="js/app.js"></script>
+</body>
+
+</html>

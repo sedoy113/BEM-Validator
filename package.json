@@ -1,0 +1,50 @@
+{
+  "name": "bem-validator",
+  "version": "1.0.0",
+  "description": "Валидатор БЭМ-разметки",
+  "type": "module",
+  "main": "./dist/server/index.js",
+  "bin": {
+    "bem-validator": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "tsc --noEmit",
+    "start": "node dist/server/index.js",
+    "server": "npm run build && npm run start",
+    "build:prod": "npm run build && npm run build:copy",
+    "build:copy": "node scripts/copy-web.js",
+    "prepublishOnly": "npm run build:prod"
+  },
+  "keywords": [
+    "bem",
+    "validator",
+    "html",
+    "css"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^14.0.3",
+    "express": "^5.2.1",
+    "htmlparser2": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.5",
+    "cheerio": "^1.2.0",
+    "happy-dom": "^20.8.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "files": [
+    "dist/",
+    "web/"
+  ]
+}
